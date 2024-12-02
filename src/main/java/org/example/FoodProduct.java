@@ -1,20 +1,26 @@
 package org.example;
 
-public class FoodProduct {
+public class FoodProduct extends Product {
 
-    private String name;
-    private double price;
+    private double discount;
 
     public FoodProduct(String name, double price) {
-        this.name = name;
-        this.price = price;
+        super(name, price);
     }
 
-    public String getName() {
-        return name;
+    public void applyDiscount(double discount) {
+
+        this.discount = discount;
+
     }
 
+    @Override
     public double getPrice() {
-        return price;
+        //calcular cuanto es el tanto por ciento de descuento sobre el precio
+        double price = super.getPrice();
+        double moneyDiscount = price * this.discount / 100;
+
+//total = precio - discount
+        return price - moneyDiscount;
     }
 }

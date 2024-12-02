@@ -19,5 +19,13 @@ class FoodProductTest {
 
     }
 
+@Test
 
+    void whenAddDiscount_ThenPriceisDiscounted (){
+    FoodProduct foodProduct = new FoodProduct("name", 10);
+
+    foodProduct.applyDiscount(20);
+    assertEquals(8,foodProduct.getPrice());
+
+}
 }
